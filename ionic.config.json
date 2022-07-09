@@ -1,0 +1,7 @@
+{
+  "name": "portal-key-pago",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
