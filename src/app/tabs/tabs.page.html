@@ -24,11 +24,14 @@
   
   <ion-content>
     <ion-list>
-       <ion-item>Menu Item</ion-item>
-      <ion-item>Menu Item</ion-item>
-      <ion-item>Menu Item</ion-item>
-      <ion-item>Menu Item</ion-item>
-      <ion-item>Menu Item</ion-item> 
+    
+       <ion-item *ngFor="let c of menus">
+        <ion-icon  name="baseball-outline" slot="start"></ion-icon>
+        Menu Item
+      </ion-item>
+      
+    
+     
     </ion-list>
   </ion-content>
 </ion-menu>

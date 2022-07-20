@@ -12,10 +12,12 @@
     flex-direction: column;
     width: 80%;
     height: auto;
-    border: 1px solid var(--colorPrimary);
+    border: 1px solid var(--ion-color-primary);
     border-radius: 10px;
+
 }
 .div1{
+    padding: 3% ;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -52,9 +54,13 @@
 .botonera ion-button{
     width: 45% ;
     font-size: 10px;
-
+    --background: var(--ion-color-primary);
 }
+
 ion-progress-bar{
     margin: 10px auto;
     width: 80%;
+}
+.bold{
+    font-weight: bold;
 }

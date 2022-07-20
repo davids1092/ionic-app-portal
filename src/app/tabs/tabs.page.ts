@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { LoadingController } from '@ionic/angular';
 
 @Component({
   selector: 'app-tabs',
@@ -27,10 +28,34 @@ export class TabsPage {
 
   constructor(
     private router:Router,
-    private activatedRoute: ActivatedRoute
+    private activatedRoute: ActivatedRoute,
+    private loadingController: LoadingController
   ) {}
 
   ngOnInit() {
     this.router.navigate(['tab1'], {relativeTo: this.activatedRoute});
+    this.presentLoading()
+  }
+  async presentLoading() {
+    const loading = await this.loadingController.create({
+      message: 'Cargando Productos...',
+      duration: 2000
+    });
+    await loading.present();
+
+    const { role, data } = await loading.onDidDismiss();
+
+    console.log('Loading dismissed!');
+  }
+
+  async presentLoadingWithOptions() {
+    const loading = await this.loadingController.create({
+      spinner: null,
+      duration: 5000,
+      message: 'Please wait...',
+      translucent: true,
+      cssClass: 'custom-class custom-loading'
+    });
+    return await loading.present();
   }
 }

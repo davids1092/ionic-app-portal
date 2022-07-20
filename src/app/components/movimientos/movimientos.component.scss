@@ -3,7 +3,7 @@
     display: flex;
     width: 95%;
     height: auto;
-    border: 1px solid var(--colorPrimary);
+    border: 1px solid var(--ion-color-primary);
     border-radius: 10px;
     padding: 1%;
 }
@@ -19,8 +19,8 @@
     text-align: center;
 }
 .movimiento div:nth-child(1){
-    border-right: 1px solid gray;
+    border-right: 1px solid var(--ion-color-primary);
 }
 .movimiento div:nth-child(2){
-    border-right: 1px solid gray;
+    border-right: 1px solid var(--ion-color-primary);
 }

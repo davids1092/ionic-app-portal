@@ -16,18 +16,18 @@
   <!-- <app-explore-container name="Tab 1 page"></app-explore-container> -->
   <div class="containerPri">
     <h2>Cupo Actual</h2>
-    <ion-card class="cupo">
+    <ion-card  class="cupo">
       <div class="div1">
-        <ion-text>Estado:Activo</ion-text>
+        <ion-text class="bold">Estado:Activo</ion-text>
         <ion-text>$5000000</ion-text>
       </div>
       <div class="div2">
         <div style="border-right: 1px solid gray;">
-          <ion-text >Cupo disponible</ion-text>
+          <ion-text class="bold" >Cupo disponible</ion-text>
           <ion-text>${{cupoDisponible}}</ion-text>
         </div>
         <div>
-          <ion-text>Cupo utilizado </ion-text>
+          <ion-text class="bold">Cupo utilizado </ion-text>
           <ion-text>${{cupoUtilizado}}</ion-text>
         </div>
 
@@ -36,22 +36,22 @@
       <ion-progress-bar color="primary" [value]="valueBar"></ion-progress-bar>
     </ion-card>
     <h2>Creditos</h2>
-    <ion-card class="cupo" *ngFor="let c of creditos">
+    <ion-card  class="cupo"  *ngFor="let c of creditos">
       <div class="div1">
-        <ion-text>Estado:{{c.estado}}</ion-text>
-        <ion-text>Credito No. {{c.numero}}</ion-text>
+        <ion-text class="bold">Estado:{{c.estado}}</ion-text>
+        <ion-text class="bold">Credito No. {{c.numero}}</ion-text>
       </div>
       <div class="div3" >
         <div>
-          <ion-text>Pago minimo</ion-text>
+          <ion-text class="bold">Pago minimo:</ion-text>
           <ion-text>{{c.pagoM}}</ion-text>
         </div>
         <div>
-          <ion-text>Pago total</ion-text>
+          <ion-text class="bold">Pago total:</ion-text>
           <ion-text>{{c.pagoT}}</ion-text>
         </div>
         <div>
-          <ion-text>Fecha proximo pago </ion-text>
+          <ion-text class="bold">Fecha proximo pago:</ion-text>
           <ion-text>{{c.fecha}}</ion-text>
         </div>
         <div class="botonera">

@@ -19,11 +19,12 @@ ion-tab-bar{
 .div{
     width: 323px;
 height: 181px;
-    background-color: var(--ion-color-primary);
+    background-color: var(--ion-color-secondary);
     transform: rotate(-16deg);
     position: absolute;
     border-radius: 20px;
     overflow: hidden;
+    
 }
 .div div{
     transform: rotate(16deg);
@@ -31,10 +32,9 @@ height: 181px;
     padding: 10px 40px;
     display: flex;
    align-items: center;
+   height: 80%;
 }
-.div ion-icon{
-    font-size: 30px;
-}
+
 ion-list{
     margin-top: 185px;
 }
