@@ -1,32 +1,31 @@
-h2{
-    text-align: center;
-}
-.select{
-    width: 80%;
-   display: flex;
-   justify-content: center;
-}
-ion-select{
+.containerPrincipal{
     width: 100%;
-}
-.select ion-item{
-    width: 100%;
-}
-.saldo{
-    width: 80%;
-    margin: 20px auto;
-}
-.content{
-    height: 100%;
+    min-height: 100vh;
+   /*  background-color: aquamarine; */
     display: flex;
-    flex-direction: column;
     justify-content: center;
     align-items: center;
 }
+h2{
+    font-size: 50px;
+    margin: 20px 0;
+}
+.boxLogin{
+    width: 80%;
+    height: auto;
+/*     background-color: white;
+ */    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
 .botonera{
     width: 100%;
     display: flex;
-    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 40px;
 }
 .botonera ion-button{
     width: 80%;
@@ -39,7 +38,7 @@ ion-select{
     font-size: 0.9em;
     border: 1px solid #f1f1f1;
     background: rgb(219, 219, 219);
-  
+   
     margin-bottom: 10px;
     width: 80%;
    

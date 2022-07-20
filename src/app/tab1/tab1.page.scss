@@ -1,0 +1,60 @@
+.containerPri{
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px 5px;
+}
+.cupo{
+    margin:20px 0;
+    display: flex;
+    flex-direction: column;
+    width: 80%;
+    height: auto;
+    border: 1px solid var(--colorPrimary);
+    border-radius: 10px;
+}
+.div1{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.div1 p:nth-child(1){
+    font-size: 10px;
+
+}
+.div1 p:nth-child(2){
+    font-size: 20px;
+    font-weight: bold
+}
+.div2{
+    display: flex;
+}
+.div2 div{
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.div3 div{
+    width: 80%;
+    display: flex;
+    justify-content: space-between;
+    margin: auto;
+}
+.botonera{
+    width: 100%;
+   margin: 10px auto !important;
+}
+.botonera ion-button{
+    width: 45% ;
+    font-size: 10px;
+
+}
+ion-progress-bar{
+    margin: 10px auto;
+    width: 80%;
+}

@@ -1,0 +1,27 @@
+<ion-header>
+  <ion-toolbar>
+    <!-- <ion-buttons slot="start">
+      <ion-button color="medium" (click)="cancel()">Cancel</ion-button>
+    </ion-buttons> -->
+    <ion-title>Movimientos</ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="confirm()">Cerrar</ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+<ion-content class="ion-padding">
+  <ion-card class="movimiento" *ngFor="let c of movimientos">
+    <div>
+      <ion-text>Fecha movimiento </ion-text>
+      <ion-text>{{c.fecha}}</ion-text>
+    </div>
+    <div>
+      <ion-text>Descripcion </ion-text>
+      <ion-text>{{c.descripcion}}</ion-text>
+    </div>
+    <div>
+      <ion-text>Monto transaccional </ion-text>
+      <ion-text>${{c.monto}} </ion-text>
+    </div>
+  </ion-card>
+</ion-content>

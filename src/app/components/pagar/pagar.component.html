@@ -1,0 +1,59 @@
+<ion-header>
+  <ion-toolbar>
+
+    <ion-title>Pagos</ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="confirm()">Cerrar</ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+<ion-content class="ion-padding">
+  <ion-text>
+    <h2>
+      Pago de crédito
+    </h2>
+  </ion-text>
+  <ion-text>
+    <h2>
+      Crédito No.
+      {{numero}}
+    </h2>
+  </ion-text>
+  <ion-list>
+   
+    
+      <ion-item>
+        <ion-label position="floating">Pago Mínimo</ion-label>
+        <ion-input disabled="true"   type="text" [value]="pagoMinimo"></ion-input>
+        <ion-checkbox slot="end" (ngModelChange)="checkBox()" [(ngModel)]="check1"  ></ion-checkbox>
+      </ion-item>
+     
+  
+  
+      <ion-item>
+        <ion-label position="floating">Pago Total</ion-label>
+        <ion-input disabled="true" type="text" [value]="PagoTotal"></ion-input>
+        <ion-checkbox slot="end" (ngModelChange)="checkBox1()" [(ngModel)]="check2"></ion-checkbox>
+      </ion-item>
+     
+ 
+ 
+      <ion-item>
+        <ion-label position="floating">Otro valor</ion-label>
+        <ion-input type="text" value="0"></ion-input>
+        <ion-checkbox slot="end" (ngModelChange)="checkBox2()" [(ngModel)]="check3" ></ion-checkbox>
+      </ion-item>
+    
+   
+  </ion-list>
+
+  <div class="botonera">
+    <ion-button>
+    Pagar
+    </ion-button>
+    <ion-button>
+      cancelar
+      </ion-button>
+  </div>
+  
+</ion-content>

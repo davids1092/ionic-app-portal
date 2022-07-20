@@ -1,17 +1,64 @@
-<ion-header [translucent]="true">
+<!--<ion-header [translucent]="true">
   <ion-toolbar>
     <ion-title>
       Tab 1
     </ion-title>
   </ion-toolbar>
-</ion-header>
+</ion-header> -->
 
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
+  <!-- <ion-header collapse="condense">
     <ion-toolbar>
       <ion-title size="large">Tab 1</ion-title>
     </ion-toolbar>
-  </ion-header>
+  </ion-header> -->
 
-  <app-explore-container name="Tab 1 page"></app-explore-container>
+  <!-- <app-explore-container name="Tab 1 page"></app-explore-container> -->
+  <div class="containerPri">
+    <h2>Cupo Actual</h2>
+    <ion-card class="cupo">
+      <div class="div1">
+        <ion-text>Estado:Activo</ion-text>
+        <ion-text>$5000000</ion-text>
+      </div>
+      <div class="div2">
+        <div style="border-right: 1px solid gray;">
+          <ion-text >Cupo disponible</ion-text>
+          <ion-text>${{cupoDisponible}}</ion-text>
+        </div>
+        <div>
+          <ion-text>Cupo utilizado </ion-text>
+          <ion-text>${{cupoUtilizado}}</ion-text>
+        </div>
+
+
+      </div>
+      <ion-progress-bar color="primary" [value]="valueBar"></ion-progress-bar>
+    </ion-card>
+    <h2>Creditos</h2>
+    <ion-card class="cupo" *ngFor="let c of creditos">
+      <div class="div1">
+        <ion-text>Estado:{{c.estado}}</ion-text>
+        <ion-text>Credito No. {{c.numero}}</ion-text>
+      </div>
+      <div class="div3" >
+        <div>
+          <ion-text>Pago minimo</ion-text>
+          <ion-text>{{c.pagoM}}</ion-text>
+        </div>
+        <div>
+          <ion-text>Pago total</ion-text>
+          <ion-text>{{c.pagoT}}</ion-text>
+        </div>
+        <div>
+          <ion-text>Fecha proximo pago </ion-text>
+          <ion-text>{{c.fecha}}</ion-text>
+        </div>
+        <div class="botonera">
+          <ion-button (click)="openModalMov()" >Movimientos</ion-button>
+          <ion-button (click)="openModalPago(c.numero, c.pagoM, c.pagoT)" >Pagar</ion-button>
+        </div>
+      </div>
+    </ion-card>
+  </div>
 </ion-content>

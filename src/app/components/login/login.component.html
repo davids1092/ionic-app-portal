@@ -1,0 +1,29 @@
+<div class="containerPrincipal">
+
+  <div class="boxLogin">
+    <ion-text>
+      <h2>KeyPago</h2>
+    </ion-text>
+
+
+
+    <!-- <mat-form-field appearance="outline">
+        <mat-label></mat-label>
+        <input type="text" matInput placeholder="Escribe tu número de cédula">
+        </mat-form-field> -->
+    <ion-item class="itemform">
+      <ion-label position="floating">Número de cédula</ion-label>
+      <ion-input></ion-input>
+    </ion-item>
+    <ion-item class="itemform">
+      <ion-label position="floating">Contraseña</ion-label>
+      <ion-input type="password"></ion-input>
+    </ion-item>
+
+
+    <div class="botonera">
+      <ion-button (click)="goHome()">Iniciar sesión</ion-button>
+      <ion-button (click)="recuperarContrasena()">olvidé mi contraseña</ion-button>
+    </div>
+  </div>
+</div>

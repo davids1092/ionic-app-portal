@@ -1,17 +1,49 @@
 <ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>
-      Tab 2
-    </ion-title>
-  </ion-toolbar>
+  <ion-text>
+    <h2>Certificados</h2>
+  </ion-text>
 </ion-header>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Tab 2</ion-title>
-    </ion-toolbar>
-  </ion-header>
+<ion-content [fullscreen]="true" >
+  <div class="content">
 
-  <app-explore-container name="Tab 2 page"></app-explore-container>
+  
+  <ion-list class="select">
+    <ion-item class="itemform">
+      <ion-select placeholder="Select fruit">
+        <ion-select-option value="apples">Apples</ion-select-option>
+        <ion-select-option value="oranges">Oranges</ion-select-option>
+        <ion-select-option value="bananas">Bananas</ion-select-option>
+      </ion-select>
+    </ion-item>
+  </ion-list>
+  <ion-card class="saldo">
+ 
+    <ion-radio-group>
+      <ion-list-header>
+        <ion-label>
+          Saldo:
+        </ion-label>
+      </ion-list-header>
+  
+      <ion-item>
+        <ion-label>Con saldo</ion-label>
+        <ion-radio value="saldo"></ion-radio>
+      </ion-item>
+  
+      <ion-item>
+        <ion-label>Sin saldo</ion-label>
+        <ion-radio value="sinSaldo"></ion-radio>
+      </ion-item>
+  
+    </ion-radio-group>
+ 
+
+</ion-card>
+  <div class="botonera">
+    <ion-button >
+      Descargar
+    </ion-button>
+  </div>
+</div>
 </ion-content>

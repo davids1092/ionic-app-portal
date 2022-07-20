@@ -1,0 +1,17 @@
+ion-text{
+    text-align: center;
+}
+ion-list ion-item{
+    align-items: center;
+}
+.botonera{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 20px 0;
+}
+.botonera ion-button{
+    width: 70%;
+   
+}
