@@ -30,4 +30,36 @@
     
     --colorPrimary:gray;
 }
+*{
+    font-family: noto;
+}
+h2{
+    font-family: noto-bold;
+}
+@font-face {
+    font-family: noto-bold;
+    src: url(assets/fonts/Montserrat/static/Montserrat-Bold.ttf) format("opentype");
+}
+@font-face {
+    font-family: noto;
+    src: url(assets/fonts/Montserrat/static/Montserrat-ExtraLight.ttf) format("opentype");
+}
+.bold{
+    font-family: noto-bold;
+    
+}
+.my-custom-class {
+    --height: 60%;
+    --width: 90%;
+    margin: auto;
+    --border-radius: 20px;
+    border: 1px solid var(--ion-color-primary);
+    box-shadow: 10px 10px 10px var( --ion-color-primary);
+    
+  }
+//   .my-custom-class::part(backdrop){
+//     background-color: rgb(51, 49, 49) !important;
+//     opacity: 1;
+//   }
+ 
 

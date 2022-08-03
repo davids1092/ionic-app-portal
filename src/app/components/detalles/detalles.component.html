@@ -1,0 +1,29 @@
+<ion-header>
+  <ion-toolbar color="tertiary" >
+    <!-- <ion-buttons slot="start">
+      <ion-button color="medium" (click)="cancel()">Cancel</ion-button>
+    </ion-buttons> -->
+    <ion-title>Detalles</ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="cancel()"><ion-icon name="close-circle-outline"></ion-icon></ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+  <div class="ion-padding">
+    <ion-text color="primary">
+      <h2>No. Crédito : {{credito.NUMERO}}</h2>
+    </ion-text>
+    <div class="content">
+      <p>Estado: {{credito.ESTADO}}</p> 
+      <p> Pago minímo: {{credito.PAGOMIN}}</p>
+      <p>Pago total: {{credito.PAGOTOTAL}}</p> 
+      <p> Fecha pago: {{credito.FECHAPAGO}}</p>
+      <p>Mora: {{credito.DEUDAMORA}}</p> 
+      <p>Cuota regular: {{credito.CUOTAREGU}}</p> 
+    </div>
+  
+    
+
+  </div>
+</ion-content>

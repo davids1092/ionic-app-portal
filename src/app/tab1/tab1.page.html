@@ -6,59 +6,95 @@
   </ion-toolbar>
 </ion-header> -->
 
-<ion-content [fullscreen]="true">
-  <!-- <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Tab 1</ion-title>
-    </ion-toolbar>
-  </ion-header> -->
-
-  <!-- <app-explore-container name="Tab 1 page"></app-explore-container> -->
-  <div class="containerPri">
-    <h2>Cupo Actual</h2>
-    <ion-card  class="cupo">
-      <div class="div1">
-        <ion-text class="bold">Estado:Activo</ion-text>
-        <ion-text>$5000000</ion-text>
-      </div>
-      <div class="div2">
-        <div style="border-right: 1px solid gray;">
-          <ion-text class="bold" >Cupo disponible</ion-text>
-          <ion-text>${{cupoDisponible}}</ion-text>
-        </div>
-        <div>
-          <ion-text class="bold">Cupo utilizado </ion-text>
-          <ion-text>${{cupoUtilizado}}</ion-text>
-        </div>
-
-
-      </div>
-      <ion-progress-bar color="primary" [value]="valueBar"></ion-progress-bar>
-    </ion-card>
-    <h2>Creditos</h2>
-    <ion-card  class="cupo"  *ngFor="let c of creditos">
-      <div class="div1">
-        <ion-text class="bold">Estado:{{c.estado}}</ion-text>
-        <ion-text class="bold">Credito No. {{c.numero}}</ion-text>
-      </div>
-      <div class="div3" >
-        <div>
-          <ion-text class="bold">Pago minimo:</ion-text>
-          <ion-text>{{c.pagoM}}</ion-text>
-        </div>
-        <div>
-          <ion-text class="bold">Pago total:</ion-text>
-          <ion-text>{{c.pagoT}}</ion-text>
-        </div>
-        <div>
-          <ion-text class="bold">Fecha proximo pago:</ion-text>
-          <ion-text>{{c.fecha}}</ion-text>
-        </div>
-        <div class="botonera">
-          <ion-button (click)="openModalMov()" >Movimientos</ion-button>
-          <ion-button (click)="openModalPago(c.numero, c.pagoM, c.pagoT)" >Pagar</ion-button>
-        </div>
-      </div>
-    </ion-card>
+ <ion-content [fullscreen]="true"  [scrollEvents]="true" (ionScroll)="onScroll($event)"   >
+  <ion-refresher slot="fixed" (ionRefresh)="doRefresh($event)"  >
+    <ion-refresher-content></ion-refresher-content>
+  </ion-refresher>
+     
+  <div class="lottie" *ngIf="spinner">
+    <ng-lottie  height="auto" width="200px" [options]="options" class="lottie-img"></ng-lottie>
   </div>
+ 
+ 
+  <div class="fondo1" *ngIf="!spinner"></div>
+
+   
+  <div class="containerPri" *ngIf="!spinner"  >
+    <div class="fondo">
+      <h2 >Cupo Actual</h2>
+      <ion-card  class="ion-padding cupo animate__animated animate__bounceIn" *ngIf="!spinner">
+        <div class="div1">
+          <ion-text class="bold1">Estado:{{estado}}</ion-text>
+          <ion-text class="bold">{{cupoDisponible | currency : 'COP' : 'symbol-narrow' : '1.0-0' }}</ion-text>
+        </div>
+        <div class="div2">
+          <div style="border-right: 1px solid gray;">
+            <ion-text class="bold1" >Cupo disponible</ion-text>
+            <ion-text class="bold">{{cupoDisponible | currency : 'COP' : 'symbol-narrow' : '1.0-0'}}</ion-text>
+          </div>
+          <div>
+            <ion-text class="bold1">Cupo utilizado </ion-text>
+            <ion-text  class="bold">{{cupoUtilizado |currency : 'COP' : 'symbol-narrow' : '1.0-0'}}</ion-text>
+          </div>
+  
+  
+        </div>
+        <ion-progress-bar color="secondary" [value]="valueBar"></ion-progress-bar>
+      </ion-card>
+    </div>
+  
+    <div class="divCreditos">
+      <h2 [ngClass]="{h22: scroll, h21: !scroll}">Créditos</h2> 
+      <ion-card  class="cupo animate__animated animate__bounceIn"  *ngFor="let c of creditos"  >
+        <div class="div1">
+          <ion-text class="bold">Estado:{{c.ESTADO}}</ion-text>
+          <ion-text class="bold">Credito No. {{c.NUMERO}}</ion-text>
+        </div>
+        <div class="div3" >
+          <div>
+            <ion-text class="bold">Pago minimo:</ion-text>
+            <ion-text>{{c.PAGOMIN | currency}}</ion-text>
+          </div>
+          <div>
+            <ion-text class="bold">Pago total:</ion-text>
+            <ion-text>{{c.PAGOTOTAL | currency}}</ion-text>
+          </div>
+          <div>
+            <ion-text class="bold">Fecha proximo pago:</ion-text>
+            <ion-text>{{c.FECHAPAGO}}</ion-text>
+          </div>
+          <div class="botonera">
+            <ion-button (click)="openModalMov()" >Movimientos</ion-button>
+            <ion-button (click)="openModalPago(c.NUMERO, c.PAGOMIN, c.PAGOTOTAL)" >Pagar</ion-button>
+            <ion-button (click)="card(c)" >Detalles</ion-button>
+          </div>
+        </div>
+      </ion-card>
+    </div>
+   
+ 
+  </div>
+  <ion-fab vertical="bottom" horizontal="end" slot="fixed" *ngIf="!spinner">
+    <ion-fab-button>
+      
+      <ion-text class="bold1">
+       PQR
+      </ion-text>
+    </ion-fab-button>
+   
+    <ion-fab-list side="top">
+
+        <ion-fab-button color="secondary" (click)="documentos()" style="display:flex; flex-direction:column"><ion-icon color="primary" name="help-circle-outline"></ion-icon> </ion-fab-button>
+      
+      </ion-fab-list>
+  </ion-fab> 
+  <!-- <ion-list>
+    <ion-item>
+      <ion-label>Date</ion-label>
+      <ion-datetime display-format="DD.MM.YYYY HH:mm"></ion-datetime>
+    </ion-item>
+  </ion-list> -->
+
+     
+  
 </ion-content>

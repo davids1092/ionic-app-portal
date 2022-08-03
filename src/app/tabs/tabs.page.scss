@@ -1,18 +1,19 @@
 .navBar{
     display: block;
     position: relative;
-   z-index: 2;
+     z-index: 2;
 }
 .menu ion-tab-button{
     font-weight: bold;
 }
-ion-tab-bar{
-    width: 80%;
-    margin: 15px auto;
-    border: 1px solid gray;
-    border-radius: 20px;
-    box-shadow: 0 0 10px var(--ion-color-primary);
-}
+// ion-tab-bar{
+//     width: 80%;
+//     margin: 15px auto;
+//     border: 1px solid gray;
+//     border-radius: 20px;
+//     box-shadow: 0 0 10px var(--ion-color-primary);
+    
+// }
 .toolbar{
     display: flex;
 }
@@ -38,3 +39,15 @@ height: 181px;
 ion-list{
     margin-top: 185px;
 }
+.tab-selected{
+    color: var(--ion-color-tertiary);
+}
+.label{
+    font-family: noto-bold;
+}
+// .menu{
+//     position: absolute;
+//     width: 80%;
+//     bottom: 10px;
+//     margin: auto;
+// }

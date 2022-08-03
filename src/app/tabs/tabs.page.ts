@@ -1,52 +1,60 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { LoadingController } from '@ionic/angular';
+import { ServicesService } from '../services/services.service';
+import { ConverterService } from '../services/converter.service';
 
 @Component({
   selector: 'app-tabs',
   templateUrl: 'tabs.page.html',
   styleUrls: ['tabs.page.scss']
 })
-export class TabsPage {
+export class TabsPage extends ConverterService implements OnInit{
+  cliente:any
   menus=[
     {
       'name':'tab1',
-      'icon':'bag-outline',
+      'icon':'bag',
       'label':'Productos'
     },
     {
       'name':'tab2',
-      'icon':'document-text-outline',
+      'icon':'document-text',
       'label':'Documentos'
     },
-    {
-      'name':'tab3',
-      'icon':'mail-open-outline',
-      'label':'PQR'
-    },
+    // {
+    //   'name':'tab3',
+    //   'icon':'mail-open',
+    //   'label':'PQR'
+    // },
   ]
-
+productos=true
   constructor(
     private router:Router,
     private activatedRoute: ActivatedRoute,
-    private loadingController: LoadingController
-  ) {}
+    private loadingController: LoadingController,
+    private services: ServicesService
+  ) {
+    super()
+  }
 
   ngOnInit() {
+    let temp:any = sessionStorage.getItem('cliente')
+    let temp2 =JSON.parse(temp)
+    this.cliente = JSON.parse(this.decrypt(temp2['data']))
     this.router.navigate(['tab1'], {relativeTo: this.activatedRoute});
-    this.presentLoading()
+   this.services.subject.subscribe({
+    next:(x:any)=>{
+      
+      if(x == 1){
+        this.productos = false
+      }else{
+        this.productos = true
+      }
+    }
+   })
   }
-  async presentLoading() {
-    const loading = await this.loadingController.create({
-      message: 'Cargando Productos...',
-      duration: 2000
-    });
-    await loading.present();
-
-    const { role, data } = await loading.onDidDismiss();
-
-    console.log('Loading dismissed!');
-  }
+ 
 
   async presentLoadingWithOptions() {
     const loading = await this.loadingController.create({
@@ -58,4 +66,5 @@ export class TabsPage {
     });
     return await loading.present();
   }
+  
 }

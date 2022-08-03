@@ -6,7 +6,11 @@ const routes: Routes = [
   {
     path: '',
     component: Tab1Page,
-  }
+    
+  },
+  
+  
+   
 ];
 
 @NgModule({

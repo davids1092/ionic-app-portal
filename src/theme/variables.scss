@@ -4,7 +4,7 @@
 /** Ionic CSS Variables **/
 :root {
   /** primary **/
-  --ion-color-primary: rgb(112, 13, 232);
+  --ion-color-primary: #140576;
   --ion-color-primary-rgb: 56, 128, 255;
   --ion-color-primary-contrast: #ffffff;
   --ion-color-primary-contrast-rgb: 255, 255, 255;
@@ -19,8 +19,15 @@
   --ion-color-secondary-shade: #36abe0;
   --ion-color-secondary-tint: #50c8ff;
 
+  /** quaternary **/
+  --ion-color-quaternary: #e1f9075d;
+  --ion-color-quaternary-rgb: 61, 194, 255;
+  --ion-color-quaternary-contrast: #ffffff;
+  --ion-color-quaternary-contrast-rgb: 255, 255, 255;
+  --ion-color-quaternary-shade: #36abe0;
+  --ion-color-quaternary-tint: #50c8ff;
   /** tertiary **/
-  --ion-color-tertiary: #5260ff;
+  --ion-color-tertiary:  rgb(112, 13, 232);
   --ion-color-tertiary-rgb: 82, 96, 255;
   --ion-color-tertiary-contrast: #ffffff;
   --ion-color-tertiary-contrast-rgb: 255, 255, 255;
@@ -75,6 +82,14 @@
   --ion-color-light-shade: #d7d8da;
   --ion-color-light-tint: #f5f6f9;
 }
+.ion-color-quaternary{
+--ion-color-base: var(--ion-color-quaternary) !important;
+--ion-color-base-rgb: var(--ion-color-quaternary-rgb) !important;
+--ion-color-contrast: var(--ion-color-quaternary-contrast) !important;
+--ion-color-contrast-rgb: var(--ion-color-quaternary-contrast-rgb) !important;
+--ion-color-shade: var(--ion-color-quaternary-shade) !important;
+--ion-color-tint: var(--ion-color-quaternary-tint) !important;
+}
 
 @media (prefers-color-scheme: dark) {
   /*
@@ -96,6 +111,14 @@
     --ion-color-secondary-contrast-rgb: 255,255,255;
     --ion-color-secondary-shade: #46b0e0;
     --ion-color-secondary-tint: #62ceff;
+
+  
+   --ion-color-quaternary: #dcf309ac;
+   --ion-color-quaternary-rgb: 61, 194, 255;
+   --ion-color-quaternary-contrast: #ffffff;
+   --ion-color-quaternary-contrast-rgb: 255, 255, 255;
+   --ion-color-quaternary-shade: #36abe0;
+   --ion-color-quaternary-tint: #50c8ff;
 
     --ion-color-tertiary: #6a64ff;
     --ion-color-tertiary-rgb: 106,100,255;

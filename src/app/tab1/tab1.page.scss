@@ -1,10 +1,12 @@
 .containerPri{
     width: 100%;
-    height: auto;
+    // min-height: 100vh;
+    height: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
     padding: 20px 5px;
+    position: relative
 }
 .cupo{
     margin:20px 0;
@@ -15,6 +17,45 @@
     border: 1px solid var(--ion-color-primary);
     border-radius: 10px;
 
+}
+.div3{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+   
+}
+.divCreditos{
+    position: relative;
+    flex-direction: column;
+    top: 40%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: -1;
+}
+.fondo ion-text{
+    color: var(--ion-color-secondary) !important;
+}
+.fondo ion-card{
+    background: transparent;
+    margin: 0;
+}
+h2{
+    color: var(--ion-color-secondary);
+    font-size: 30px;
+}
+.h22{
+    color: var(--ion-color-tertiary);
+    font-size: 30px;
+}
+ion-card{
+    box-shadow: 0px 0px 10px var(--ion-color-primary);
+ }
+.h21{
+    color: var(--ion-color-secondary);
+    font-size: 30px;
 }
 .div1{
     padding: 3% ;
@@ -50,17 +91,64 @@
 .botonera{
     width: 100%;
    margin: 10px auto !important;
+   display: flex;
+   flex-wrap: wrap;
+   justify-content: center !important;
 }
 .botonera ion-button{
     width: 45% ;
-    font-size: 10px;
+    font-size: 0.7rem;
     --background: var(--ion-color-primary);
+    color: #ffff;
+    font-family: noto-bold;
 }
 
 ion-progress-bar{
     margin: 10px auto;
     width: 80%;
+    background: #fff;
 }
 .bold{
-    font-weight: bold;
+   font-family: noto-bold
+}
+.fondo .bold1{
+    font-family: noto-bold;
+    color:#ffff !important;
+ }
+.fondo{
+    height: 40%;
+    width: 100%;
+    background-color: var(--ion-color-primary);
+    position: fixed;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    top:0;
+    border-radius: 0px 0px 40px 40px;
+    box-shadow: 0px 0px 20px var(--ion-color-tertiary);
+    // z-index: -1;
+}
+.fondo1{
+    height: 30%;
+    width: 100%;
+    background-color: var(--ion-color-tertiary);
+    position: fixed;
+    bottom:0;
+    border-radius: 18000px 0px 0px 0px;
+    z-index: -1;
+}
+.lottie{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100vh;
+    position: fixed;
+    background: transparent;
+    z-index: 1;
+}
+.bold1{
+    font-family: noto-bold;
+ 
 }

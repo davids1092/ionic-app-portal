@@ -11,12 +11,18 @@ import { NavBarComponent } from './components/nav-bar/nav-bar.component';
 import { AppMaterialModule } from './app-material/app-material.module';
 import { LoginComponent } from './components/login/login.component';
 import { RecuperarContrasenaComponent } from './components/recuperar-contrasena/recuperar-contrasena.component';
+import { HttpClientModule } from '@angular/common/http';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { LottieModule } from 'ngx-lottie';
 
-
+export function playerFactory() { // add this line
+  return import('lottie-web'); // add this line
+} // add this line
 @NgModule({
-  declarations: [AppComponent,LoginComponent,RecuperarContrasenaComponent],
-  imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule, BrowserAnimationsModule, AppMaterialModule],
+  declarations: [AppComponent, LoginComponent, RecuperarContrasenaComponent],
+  imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule, BrowserAnimationsModule, AppMaterialModule, HttpClientModule,FormsModule,ReactiveFormsModule,
+    LottieModule.forRoot({ player: playerFactory })],
   providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy }],
   bootstrap: [AppComponent],
 })
-export class AppModule {}
+export class AppModule { }

@@ -1,49 +1,229 @@
-<ion-header [translucent]="true">
+<!-- <ion-header [translucent]="false" class="ion-no-border"  >
+  <ion-toolbar >
+    <ion-title class="bold texCenter ion-no-border" color="primary"  >Documentos</ion-title>
+    <ion-back-button defaultHref="/" text="Volver" color="secondary" slot="start"></ion-back-button>
+  </ion-toolbar> 
+</ion-header>-->
+
+<ion-content [fullscreen]="true">
+  <div class="lottie" *ngIf="spinner">
+    <ng-lottie height="auto" width="200px" [options]="options" class="lottie-img"></ng-lottie>
+  </div>
+  <div class="containerPrincipal">
+    <div class="fondo"></div>
+    <div class="content1" *ngIf="!btn1">
+      <h2>Certificados</h2>
+      <ion-card class="ion-padding" >
+        
+        <ion-list class="select1">
+          <ion-label style="text-align: center ;">Producto</ion-label>
+          <ion-item class="itemform">
+            
+            <ion-select mode="ios" interface="action-sheet" [formControl]="productoCertificado"
+              placeholder="Selecciona producto">
+             
+              <ion-select-option *ngFor="let c of creditos" [value]="c.NUMERO">No.{{c.NUMERO}}</ion-select-option>
+            </ion-select>
+          </ion-item>
+        </ion-list>
+    
+     
+    <!--   <ion-card class="saldo">
+         <ion-radio-group>
+         <ion-list-header>
+            <ion-label>
+              Saldo:
+            </ion-label>
+          </ion-list-header> 
+
+          <ion-item>
+            <ion-label>Con saldo</ion-label>
+            <ion-radio value="saldo"></ion-radio>
+          </ion-item>
+
+          <ion-item>
+            <ion-label>Sin saldo</ion-label>
+            <ion-radio value="sinSaldo"></ion-radio>
+          </ion-item>
+
+        </ion-radio-group>
+      </ion-card> -->
+      <div class="botonera">
+        <ion-button  (click)="generarCertificado()"> Descargar </ion-button>
+      </div>
+    </ion-card>
+    </div>
+
+    <div class="content" *ngIf="btn1">
+      <h2>Extractos</h2>
+      <ion-list class="select" [formGroup]="formDate">
+        <div class="extractosFecha">
+          <ion-label style="text-align: center ;">Año</ion-label>
+          <ion-item class="itemform">
+            <ion-select     placeholder="Año" formControlName="anio" (ngModelChange)="fechas()">
+              <ion-select-option *ngFor="let a of years" [value]="a">{{a}}</ion-select-option>
+            </ion-select>
+          </ion-item>
+        </div>
+        <div class="extractosFecha">
+          <ion-label style="text-align: center ;">Mes</ion-label>
+        <ion-item class="itemform">
+
+          <ion-select   placeholder="Mes" formControlName="mes" [disabled]="formDate.controls['anio'].invalid">
+            <ion-select-option *ngFor="let a of monthList" [value]="a.number" [disabled]="a.disabled">{{a.type}}</ion-select-option>
+
+          </ion-select>
+        </ion-item>
+      </div>
+      </ion-list>
+
+<div style="width:100%">
+<ion-slides pager="true" style="height: 100% ;">
+<ion-slide  *ngFor="let c of creditos">
+
+<ion-card class="saldo" class="ion-padding">
   <ion-text>
-    <h2>Certificados</h2>
+    <h2 class="credit">No Crédito {{c.NUMERO}}</h2>
+    <p style="text-align:center ;" class="bold">Estado: {{c.ESTADO}}</p>
   </ion-text>
-</ion-header>
-
-<ion-content [fullscreen]="true" >
-  <div class="content">
-
-  
-  <ion-list class="select">
-    <ion-item class="itemform">
-      <ion-select placeholder="Select fruit">
-        <ion-select-option value="apples">Apples</ion-select-option>
-        <ion-select-option value="oranges">Oranges</ion-select-option>
-        <ion-select-option value="bananas">Bananas</ion-select-option>
-      </ion-select>
-    </ion-item>
-  </ion-list>
-  <ion-card class="saldo">
- 
-    <ion-radio-group>
-      <ion-list-header>
-        <ion-label>
-          Saldo:
-        </ion-label>
-      </ion-list-header>
-  
-      <ion-item>
-        <ion-label>Con saldo</ion-label>
-        <ion-radio value="saldo"></ion-radio>
-      </ion-item>
-  
-      <ion-item>
-        <ion-label>Sin saldo</ion-label>
-        <ion-radio value="sinSaldo"></ion-radio>
-      </ion-item>
-  
-    </ion-radio-group>
- 
-
-</ion-card>
   <div class="botonera">
-    <ion-button >
-      Descargar
+    <ion-button (click)="generar(c.NUMERO)">
+      descargar
     </ion-button>
   </div>
+</ion-card>
+</ion-slide>
+</ion-slides>
 </div>
+
+    </div>
+    
+
+    <div class="fondo1">
+      <ion-button class="bold" [ngClass]="{btnColor :btn1}" (click)="SeleccionDoc(1)" expand="block" shape="round">
+        <ion-icon slot="start" name="document-text-outline"></ion-icon>
+        Extractos
+      </ion-button>
+      <ion-button  class="bold" [ngClass]="{btnColor :!btn1}" (click)="SeleccionDoc(2)" expand="block" shape="round">
+        <ion-icon slot="start" name="document-text-outline"></ion-icon>
+        Certificados
+      </ion-button>
+    </div>
+    <!-- <ion-accordion-group #accordionGroup>
+      <ion-accordion value="first" toggleIcon="false">
+        <ion-item slot="header" color="transparent">
+          <ion-label color="secondary">Certificados</ion-label>
+          <ion-icon name="document-attach-outline" color="secondary"></ion-icon>
+        </ion-item>
+
+        <div class="ion-padding" slot="content">
+          <div class="content">
+
+
+            <ion-list class="select1">
+              <ion-item class="itemform">
+                <ion-select mode="ios" interface="action-sheet" [formControl]="productoCertificado"  placeholder="Selecciona producto">
+                  <ion-select-option *ngFor="let c of creditos" [value]="c.NUMERO">No.{{c.NUMERO}}</ion-select-option>
+                </ion-select>
+              </ion-item>
+            </ion-list>
+            <ion-card class="saldo">
+
+               <ion-radio-group>
+               <ion-list-header>
+                  <ion-label>
+                    Saldo:
+                  </ion-label>
+                </ion-list-header> 
+
+                <ion-item>
+                  <ion-label>Con saldo</ion-label>
+                  <ion-radio value="saldo"></ion-radio>
+                </ion-item>
+
+                <ion-item>
+                  <ion-label>Sin saldo</ion-label>
+                  <ion-radio value="sinSaldo"></ion-radio>
+                </ion-item>
+
+              </ion-radio-group>
+
+
+            </ion-card>
+            <div class="botonera">
+              <ion-button (click)="generarCertificado()">
+                Descargar
+              </ion-button>
+            </div>
+          </div>
+        </div>
+      </ion-accordion>
+
+
+      <ion-accordion value="second" toggleIcon="false"  >
+        <ion-item slot="header" color="transparent">
+          <ion-label color="secondary">Extractos</ion-label>
+          <ion-icon name="document-lock-outline" color="secondary"></ion-icon>
+        </ion-item>
+        <div class="ion-padding" slot="content">
+          <div class="content">
+            <ion-list class="select" [formGroup]="formDate">
+
+              <ion-item class="itemform">
+
+                <ion-select  mode="ios" interface="action-sheet"   placeholder="Año" formControlName="anio">
+
+                  <ion-select-option *ngFor="let a of years" [value]="a">{{a}}</ion-select-option>
+                </ion-select>
+              </ion-item>
+              <ion-item class="itemform">
+
+                <ion-select mode="ios" interface="action-sheet"   placeholder="Mes" formControlName="mes">
+                  <ion-select-option *ngFor="let a of monthList" [value]="a.number">{{a.type}}</ion-select-option>
+
+                </ion-select>
+              </ion-item>
+            </ion-list>
+
+<div style="width:100% ; height: 350px;">
+  <ion-slides pager="true" style="height: 100% ;">
+    <ion-slide  *ngFor="let c of creditos">
+  
+      <ion-card class="saldo" class="ion-padding">
+        <ion-text>
+          <h2 class="credit">No Crédito {{c.NUMERO}}</h2>
+          <p style="text-align:center ;">Estado: {{c.ESTADO}}</p>
+        </ion-text>
+        <div class="botonera">
+          <ion-button (click)="generar(c.NUMERO)">
+            descargar
+          </ion-button>
+        </div>
+      </ion-card>
+    </ion-slide>
+    </ion-slides>
+</div>
+   <div class="botonera">
+            <ion-button >
+              Descargar
+            </ion-button>
+          </div> 
+          </div>
+        </div>
+      </ion-accordion>
+
+    </ion-accordion-group> -->
+  </div>
+  <ion-fab vertical="bottom" horizontal="end" slot="fixed" *ngIf="!spinner">
+    <ion-fab-button>
+      <!-- <ion-icon name="share"></ion-icon> -->
+      <ion-text class="bold1"> PQR </ion-text>
+    </ion-fab-button>
+
+    <ion-fab-list side="top">
+      <ion-fab-button color="secondary" (click)="documentos()" style="display: flex; flex-direction: column">
+        <ion-icon color="primary" name="help-circle-outline"></ion-icon>
+      </ion-fab-button>
+    </ion-fab-list>
+  </ion-fab>
 </ion-content>

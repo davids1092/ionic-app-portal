@@ -18,7 +18,7 @@
           <ion-icon slot="icon-only" name="person-circle"></ion-icon>
         </ion-button>
       </ion-buttons>
-      <ion-title>David perez</ion-title>
+      <ion-title>{{cliente.customerName +' ' + cliente.customerLastame | titlecase}}</ion-title>
     </ion-toolbar>
   </ion-header>
   
@@ -38,12 +38,14 @@
 <ion-header>
   <app-nav-bar ></app-nav-bar>
 </ion-header>
-<ion-content id="principal" >
+<ion-content id="principal"  >
+ 
   <ion-tabs >
-    <ion-tab-bar slot="bottom" class="menu">
-      <ion-tab-button *ngFor="let m of menus" [tab]="m.name">
+ 
+    <ion-tab-bar slot="bottom" class="menu" >
+      <ion-tab-button *ngFor="let m of menus" [tab]="m.name"[disabled]="productos"  >
         <ion-icon [name]="m.icon"></ion-icon>
-        <ion-label>{{m.label}}</ion-label>
+        <ion-label class="label">{{m.label}}</ion-label>
       </ion-tab-button>
     </ion-tab-bar>
   

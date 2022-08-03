@@ -24,7 +24,7 @@
     
       <ion-item>
         <ion-label position="floating">Pago Mínimo</ion-label>
-        <ion-input disabled="true"   type="text" [value]="pagoMinimo"></ion-input>
+        <ion-input disabled="true"   type="text" [value]="pagoMinimo | currency"></ion-input>
         <ion-checkbox slot="end" (ngModelChange)="checkBox()" [(ngModel)]="check1"  ></ion-checkbox>
       </ion-item>
      
@@ -32,7 +32,7 @@
   
       <ion-item>
         <ion-label position="floating">Pago Total</ion-label>
-        <ion-input disabled="true" type="text" [value]="PagoTotal"></ion-input>
+        <ion-input disabled="true" type="text" [value]="PagoTotal | currency"></ion-input>
         <ion-checkbox slot="end" (ngModelChange)="checkBox1()" [(ngModel)]="check2"></ion-checkbox>
       </ion-item>
      
