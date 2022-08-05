@@ -6,7 +6,8 @@
     flex-direction: column;
     align-items: center;
     padding: 20px 5px;
-    position: relative
+    position: relative;
+    z-index: -1;
 }
 .cupo{
     margin:20px 0;

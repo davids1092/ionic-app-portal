@@ -2,13 +2,15 @@ import { animate, state, style, transition, trigger } from '@angular/animations'
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { NavigationEnd, Router } from '@angular/router';
-import { AlertController, LoadingController } from '@ionic/angular';
 
 import { filter } from 'rxjs/operators';
 import { ServicesService } from '../services/services.service';
 import { AnimationOptions } from 'ngx-lottie';
 import { ConverterService } from '../services/converter.service';
 import * as FileSaver from 'file-saver';
+import { LoadingController, AlertController } from '@ionic/angular';
+// import { File } from '@ionic-native/file';
+
 @Component({
   selector: 'app-tab2',
   templateUrl: 'tab2.page.html',
@@ -118,7 +120,8 @@ export class Tab2Page extends ConverterService implements OnInit{
     private _formBuilder: FormBuilder,
     private alertController: AlertController,
     private services :ServicesService,
-    private loadingCtrl: LoadingController
+    private loadingCtrl: LoadingController,
+    
   ) {
     super()
     // this.router.events.pipe(
@@ -135,6 +138,8 @@ export class Tab2Page extends ConverterService implements OnInit{
     // nativeEl.value = 'second'
     this.creditos = this.services.getCredits()
     console.log('entre a tab2', this.creditos)
+    this.formDate.reset()
+    this.productoCertificado.reset()
  
   }
 
@@ -208,10 +213,11 @@ console.log('tab2')
         next:(x:any)=>{
      
       this.file = new Blob([x], { type: 'application/pdf' });
-      // this.pdfTerminos = new Blob([x]), {type: 'text/html'}
+   
        this.fileURL = URL.createObjectURL(this.file);
-      // window.open(this.fileURL);
+     
       FileSaver.saveAs(this.file,'Extracto');
+      
     this.loadingCtrl.dismiss()
         },error:(error:any)=>{
           this.formDate.reset()

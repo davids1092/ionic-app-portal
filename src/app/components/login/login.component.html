@@ -14,11 +14,11 @@
        
           <ion-item class="itemform">
             <ion-label position="floating">Número de cédula</ion-label>
-            <ion-input formControlName="cedula" ></ion-input>
+            <ion-input formControlName="cedula"ngDefaultControl ></ion-input>
           </ion-item>
           <ion-item class="itemform">
             <ion-label position="floating">Contraseña</ion-label>
-            <ion-input type="password" formControlName="password"></ion-input>
+            <ion-input type="password" formControlName="password" ngDefaultControl></ion-input>
           </ion-item>
        
     
@@ -30,7 +30,13 @@
       <ion-button *ngIf="!spinner" (click)="recuperarContrasena()">olvidé mi contraseña</ion-button>
     </div>
   </form>
- 
+  <!-- <ion-datetime-button datetime="datetime"></ion-datetime-button>
+
+<ion-modal [keepContentsMounted]="true">
+  <ng-template>
+    <ion-datetime presentation="year" id="datetime"></ion-datetime>
+  </ng-template>
+</ion-modal> -->
   
   
   

@@ -6,5 +6,32 @@
 
 </ion-header>
 <ion-content>
+  <div class="containerPrincipal">
+  <form class="boxLogin" [formGroup]="formRecover">
+    <ion-text class="textCenter">
+      <h2>KeyPago</h2>
+      <h3>La seguridad primero</h3>
+      <p>Diligencia los siguientes datos para el desbloqueo de clave</p>
+    </ion-text>
 
+       
+          <ion-item class="itemform">
+            <ion-label position="floating">Usuario</ion-label>
+            <ion-input formControlName="user" ></ion-input>
+          </ion-item>
+          <ion-item class="itemform">
+            <ion-label position="floating">Correo eléctronico</ion-label>
+            <ion-input type="password" formControlName="email"></ion-input>
+          </ion-item>
+       
+    
+
+
+    <div class="botonera">
+      <ion-spinner name="lines-small" *ngIf="spinner"></ion-spinner>
+      <ion-button *ngIf="!spinner" (click)="recovery()" >Continuar</ion-button>
+      <ion-button *ngIf="!spinner" (click)="cancel()" >Cancelar</ion-button>
+    </div>
+  </form>
+</div>
 </ion-content>

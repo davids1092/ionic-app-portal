@@ -154,5 +154,6 @@ export class ServicesService extends ConverterService {
     let dataE = this.encrypt(JSON.stringify(user))
     return this.http.post(`${this.HttpUrl}keypago/key-pago-files-url/generateExtracto`, dataE, this.getHttpOptions1());
   }
-
+ 
+ 
 }

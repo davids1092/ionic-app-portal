@@ -211,3 +211,6 @@ ion-icon{
     --background: var(--ion-color-secondary);
     --color:var(--ion-color-primary)
 }
+::ng-deep .swiper-container-horizontal > .swiper-pagination-bullets{
+    bottom: 0px !important;
+}

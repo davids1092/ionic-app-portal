@@ -3,8 +3,9 @@ import { Router } from '@angular/router';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { ServicesService } from 'src/app/services/services.service';
 import { ConverterService } from '../../services/converter.service';
-import { AlertController, NavController } from '@ionic/angular';
-
+import { AlertController, ModalController, NavController } from '@ionic/angular';
+import { ChangePasswordComponent } from './change-password/change-password.component';
+import { FileDownload } from "capacitor-plugin-filedownload";
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -19,11 +20,15 @@ export class LoginComponent extends ConverterService implements OnInit {
     private servicio : ServicesService,
     private navCtrl: NavController,
     private alertController: AlertController,
+    private modalCtrl: ModalController,
+    // private file: File
   ) {
     super()
    }
 
   ngOnInit() {
+   
+    // this.openModalChangePass()
     this.formLogin = this._formBuilder.group({
       cedula: ["", [Validators.required]],
       password: ["", [Validators.required]],
@@ -55,11 +60,9 @@ export class LoginComponent extends ConverterService implements OnInit {
           sessionStorage.setItem('cliente', JSON.stringify(cliente1))
           if(autogenerada == true){
             console.log('entre a autogenerada')
-            // this.spinner=true
-            //   setTimeout(() => {
-            //     this.routing.navigateByUrl("Cambio-contrasena")
-            //     this.spinner=false
-            //   }, 1000);
+            this.openModalChangePass()
+            this.formLogin.reset()
+            this.spinner = false
           }else{
             console.log('entre fuera autogenerada')
             this.formLogin.reset()
@@ -95,4 +98,15 @@ export class LoginComponent extends ConverterService implements OnInit {
   
     await alert.present();
   }
+  async openModalChangePass() {
+    const modal = await this.modalCtrl.create({
+      component: ChangePasswordComponent,
+      
+    });
+    modal.present();
+  
+    const { data, role } = await modal.onWillDismiss();
+  
+  }
+ 
 }
