@@ -5,7 +5,7 @@ import { ServicesService } from 'src/app/services/services.service';
 import { ConverterService } from '../../services/converter.service';
 import { AlertController, ModalController, NavController } from '@ionic/angular';
 import { ChangePasswordComponent } from './change-password/change-password.component';
-import { FileDownload } from "capacitor-plugin-filedownload";
+import { Filesystem, Directory, Encoding, FilesystemDirectory, FilesystemEncoding } from '@capacitor/filesystem';
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -27,7 +27,7 @@ export class LoginComponent extends ConverterService implements OnInit {
    }
 
   ngOnInit() {
-   
+  
     // this.openModalChangePass()
     this.formLogin = this._formBuilder.group({
       cedula: ["", [Validators.required]],
@@ -35,6 +35,20 @@ export class LoginComponent extends ConverterService implements OnInit {
       /* captcha: ["", [Validators.required]] */
     });
   }
+  // fileWrite() {
+  //   try { 
+  //     Filesystem.writeFile({
+  //       path: 'pdffile.png',
+  //       data: img,
+  //       directory: Directory.Documents,
+  //       encoding: Encoding.UTF8
+  //     });
+  //     alert('entro3')
+  //   } catch(e) {
+  //     alert('fallo')
+  //     console.error('Unable to write file', e);
+  //   }
+  // }
   recuperarContrasena(){
     this.router.navigateByUrl('recuperar-contraseña')
   }

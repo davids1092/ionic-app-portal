@@ -21,7 +21,12 @@ export function playerFactory() { // add this line
 } // add this line
 @NgModule({
   declarations: [AppComponent, LoginComponent, RecuperarContrasenaComponent,ChangePasswordComponent ],
-  imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule, BrowserAnimationsModule, AppMaterialModule, HttpClientModule,FormsModule,ReactiveFormsModule,
+  imports: [BrowserModule,
+     IonicModule.forRoot(), 
+     AppRoutingModule,
+     BrowserAnimationsModule,
+      AppMaterialModule, 
+     HttpClientModule,FormsModule,ReactiveFormsModule,
     LottieModule.forRoot({ player: playerFactory })],
   providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy }],
   bootstrap: [AppComponent],
